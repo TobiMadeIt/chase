@@ -1,14 +1,14 @@
 {
-  "main.css": "/lunch-roulette/static/css/main.2692e0e3.chunk.css",
-  "main.js": "/lunch-roulette/static/js/main.f4cd9324.chunk.js",
-  "main.js.map": "/lunch-roulette/static/js/main.f4cd9324.chunk.js.map",
-  "static/css/1.d91f49ea.chunk.css": "/lunch-roulette/static/css/1.d91f49ea.chunk.css",
-  "static/js/1.53a1c88d.chunk.js": "/lunch-roulette/static/js/1.53a1c88d.chunk.js",
-  "static/js/1.53a1c88d.chunk.js.map": "/lunch-roulette/static/js/1.53a1c88d.chunk.js.map",
-  "runtime~main.js": "/lunch-roulette/static/js/runtime~main.a2d4e2d5.js",
-  "runtime~main.js.map": "/lunch-roulette/static/js/runtime~main.a2d4e2d5.js.map",
-  "static/media/semantic.min.css": "/lunch-roulette/static/media/brand-icons.a1a749e8.svg",
-  "static/media/placeholder_restaurant.png": "/lunch-roulette/static/media/placeholder_restaurant.86d14ad8.png",
-  "static/media/pizza-logo.png": "/lunch-roulette/static/media/pizza-logo.3d287be5.png",
-  "index.html": "/lunch-roulette/index.html"
+  "main.css": "/chase/static/css/main.2692e0e3.chunk.css",
+  "main.js": "/chase/static/js/main.c2d551b2.chunk.js",
+  "main.js.map": "/chase/static/js/main.c2d551b2.chunk.js.map",
+  "static/css/1.ce09cd03.chunk.css": "/chase/static/css/1.ce09cd03.chunk.css",
+  "static/js/1.eec6a9e2.chunk.js": "/chase/static/js/1.eec6a9e2.chunk.js",
+  "static/js/1.eec6a9e2.chunk.js.map": "/chase/static/js/1.eec6a9e2.chunk.js.map",
+  "runtime~main.js": "/chase/static/js/runtime~main.785efc09.js",
+  "runtime~main.js.map": "/chase/static/js/runtime~main.785efc09.js.map",
+  "static/media/semantic.min.css": "/chase/static/media/brand-icons.a1a749e8.svg",
+  "static/media/placeholder_restaurant.png": "/chase/static/media/placeholder_restaurant.86d14ad8.png",
+  "static/media/pizza-logo.png": "/chase/static/media/pizza-logo.3d287be5.png",
+  "index.html": "/chase/index.html"
 }
